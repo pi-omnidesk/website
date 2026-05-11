@@ -11,6 +11,7 @@ nav.nav
         grid-auto-flow: column;
         justify-content: space-evenly;
         list-style: none;
+        padding: 0 1rem;
         & a
         {
             text-decoration: none;
@@ -19,12 +20,13 @@ nav.nav
             border-radius: 1rem;
             padding: 0.5rem 1rem;
             cursor: pointer;
+            font-weight: 600;
         }
     }
     & img.logo
     {
-        width: 1rem;
-        height: 1rem;
+        width: auto;
+        height: 3rem;
     }
     & button:is(.login,.sair)
     {
@@ -34,6 +36,7 @@ nav.nav
         border: none;
         border-radius: 1rem;
         cursor: pointer;
+        font-weight: 600;
     }
 }
 footer.footer
