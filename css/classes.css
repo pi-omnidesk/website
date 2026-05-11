@@ -28,7 +28,7 @@ nav.nav
         width: auto;
         height: 3rem;
     }
-    & button:is(.login,.sair)
+    & :is(a,button):is(.login,.sair)
     {
         background-color: var(--cor-amarelo);
         color: var(--cor-preto);
@@ -37,6 +37,7 @@ nav.nav
         border-radius: 1rem;
         cursor: pointer;
         font-weight: 600;
+        text-decoration: none;
     }
 }
 footer.footer

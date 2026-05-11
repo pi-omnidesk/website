@@ -1,0 +1,1 @@
+(async()=>await fetch("./COTAHIST_D08052026.txt"))();
