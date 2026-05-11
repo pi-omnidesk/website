@@ -1,0 +1,8 @@
+html
+{
+    --cor-amarelo: #fec901;
+    --cor-preto: #1a1a1a;
+    --cor-branco: #ffffff;
+    --cor-texto: var(--cor-preto);
+    --cor-fundo: var(--cor-branco);
+}

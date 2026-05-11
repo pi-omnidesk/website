@@ -1,0 +1,21 @@
+@import "./montserrat-font.css";
+@import "./material-icons.css";
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: default;
+    user-select: none;
+    font-size: 1rem;
+    font-family: Montserrat;
+}
+html,body
+{
+    height: 100vh;
+}
+body
+{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
