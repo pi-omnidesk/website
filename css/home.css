@@ -1,3 +1,84 @@
 @import "./default.css";
 @import "./cores.css";
 @import "./classes.css";
+
+main
+{
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+}
+
+section#apresentacao
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    
+    & .card
+    {
+        background-color: var(--cor-fundo);
+        border: 2px solid var(--cor-amarelo);
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        display: grid;
+        gap: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        &:hover
+        {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        & .card-header
+        {
+            display: grid;
+            gap: 0.5rem;
+            
+            & h3
+            {
+                color: var(--cor-preto);
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+        }
+        
+        & .card-content
+        {
+            color: var(--cor-texto);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        & .card-stats
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            
+            & .stat
+            {
+                background-color: var(--cor-amarelo);
+                padding: 1rem;
+                border-radius: 0.5rem;
+                text-align: center;
+                
+                & .value
+                {
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    color: var(--cor-preto);
+                }
+                
+                & .label
+                {
+                    font-size: 0.85rem;
+                    color: var(--cor-preto);
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
