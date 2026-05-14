@@ -42,6 +42,18 @@ section#apresentacao
     }
 }
 
+.contato{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: right;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+}
+
 @media (max-width: 768px)
 {
     section#apresentacao

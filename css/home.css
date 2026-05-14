@@ -26,10 +26,17 @@ main
     gap: 0.5rem;
 }
 
+#nomeUsuario
+{
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--cor-amarelo);
+}
+
 .boas-vindas h1
 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .boas-vindas p
@@ -127,11 +134,23 @@ section#apresentacao
     color: var(--cor-preto);
 }
 
+.contato{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: right;
+}
+
 .label
 {
     font-size: 0.85rem;
     color: var(--cor-preto);
     font-weight: 500;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
 }
 
 /* RESPONSIVO */
