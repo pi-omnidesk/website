@@ -1,0 +1,182 @@
+@import "./default.css";
+@import "./cores.css";
+@import "./classes.css";
+
+.personalizacao-layout
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+}
+
+.personalizacao-container
+{
+    max-width: 800px;
+    width: 100%;
+    display: grid;
+    gap: 2rem;
+}
+
+.header-secao
+{
+    display: grid;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--cor-amarelo) 0%, rgba(254, 201, 1, 0.8) 100%);
+    border-radius: 1.5rem;
+    & h1
+    {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--cor-preto);
+        margin: 0;
+    }
+    & p
+    {
+        font-size: 0.95rem;
+        color: rgba(26, 26, 26, 0.8);
+        margin: 0;
+    }
+}
+
+.lista-tickers
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--cor-branco);
+    border: 2px solid rgba(254, 201, 1, 0.3);
+    border-radius: 1.5rem;
+}
+
+.checkbox-item
+{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: #fffdf5;
+    border: 1px solid rgba(26, 26, 26, 0.08);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    & input[type="checkbox"]
+    {
+        width: 1.25rem;
+        height: 1.25rem;
+        cursor: pointer;
+        accent-color: var(--cor-amarelo);
+    }
+    & label
+    {
+        display: grid;
+        gap: 0.2rem;
+        cursor: pointer;
+        margin: 0;
+        flex: 1;
+        & .ticker
+        {
+            font-weight: 700;
+            color: var(--cor-preto);
+            font-size: 0.95rem;
+        }
+        & .empresa
+        {
+            font-size: 0.85rem;
+            color: rgba(26, 26, 26, 0.65);
+        }
+    }
+    &:hover
+    {
+        border-color: var(--cor-amarelo);
+        background: #fffef8;
+        box-shadow: 0 2px 8px rgba(254, 201, 1, 0.2);
+    }
+    & input[type="checkbox"]:checked ~ label
+    {
+        & .ticker
+        {
+            color: var(--cor-amarelo);
+        }
+    }
+}
+
+.botoes-acao
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.btn-salvar,
+.btn-selecionar
+{
+    padding: 0.75rem 1.5rem;
+    background-color: var(--cor-amarelo);
+    color: var(--cor-preto);
+    border: none;
+    border-radius: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    &:hover
+    {
+        background-color: #fdb600;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(254, 201, 1, 0.3);
+    }
+    &:active
+    {
+        transform: translateY(0);
+    }
+}
+
+.btn-selecionar
+{
+    background-color: rgba(254, 201, 1, 0.5);
+    &:hover
+    {
+        background-color: rgba(254, 201, 1, 0.7);
+    }
+}
+
+.mensagem-status
+{
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    font-weight: 600;
+    min-height: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    &.sucesso
+    {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        opacity: 1;
+    }
+    &.erro
+    {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px)
+{
+    .personalizacao-layout
+    {
+        padding: 1rem;
+    }
+    .lista-tickers
+    {
+        grid-template-columns: 1fr;
+    }
+}

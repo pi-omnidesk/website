@@ -4,7 +4,10 @@ function login(usuario, senha)
 
     // PROCURA O USUÁRIO
     var usuario_encontrado = usuarios.find(
-        v => v.usuario == usuario && v.senha == senha
+        function(usuario_atual)
+        {
+            return usuario_atual.usuario == usuario && usuario_atual.senha == senha;
+        }
     );
 
     if (usuario_encontrado)
@@ -15,13 +18,13 @@ function login(usuario, senha)
             usuario_encontrado.nome
         );
 
-        alert('Entrou na conta com sucesso');
+        alert("Entrou na conta com sucesso");
 
         return true;
     }
     else
     {
-        alert('Usuário ou senha inválidos');
+        alert("Usuário ou senha inválidos");
 
         return false;
     }
@@ -32,9 +35,14 @@ function cadastro(nome, email, usuario, senha)
     var usuarios = sincronizar_usuarios();
 
     // VERIFICA SE O USUÁRIO JÁ EXISTE
-    if (usuarios.filter(v => v.usuario == usuario).length)
+    if (usuarios.filter(
+        function(usuario_atual)
+        {
+            return usuario_atual.usuario == usuario;
+        }
+    ).length)
     {
-        alert('Usuário já existe');
+        alert("Usuário já existe");
 
         return false;
     }
@@ -50,7 +58,7 @@ function cadastro(nome, email, usuario, senha)
 
         sincronizar_usuarios(usuarios);
 
-        alert('Conta criada com sucesso');
+        alert("Conta criada com sucesso");
 
         return true;
     }
@@ -62,9 +70,15 @@ var form_login = document.getElementById("loginForm");
 var form_cadastro = document.getElementById("cadastroForm");
 
 // EVENTOS
-form_login?.addEventListener("submit", acao_login);
+if (form_login)
+{
+    form_login.addEventListener("submit", acao_login);
+}
 
-form_cadastro?.addEventListener("submit", acao_cadastro);
+if (form_cadastro)
+{
+    form_cadastro.addEventListener("submit", acao_cadastro);
+}
 
 // LOGIN
 function acao_login(event)
@@ -103,7 +117,7 @@ function acao_cadastro(event)
 // SINCRONIZA USUÁRIOS
 function sincronizar_usuarios(usuarios)
 {
-    if (usuarios?.length)
+    if (usuarios && usuarios.length)
     {
         localStorage.setItem(
             "usuarios",
