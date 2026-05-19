@@ -5,60 +5,41 @@ function check_logado()
         location.assign("/login");
     }
 }
-
-check_logado();
-
 function sair()
 {
     localStorage.removeItem("usuario_logado");
-
     location.assign("/login");
 }
-
-function iniciarHome()
+function montar_cards()
 {
-    // PEGA O USUÁRIO
     const usuario = localStorage.getItem("usuario_logado");
-
-    // MOSTRA O NOME
-    const nomeUsuario = document.getElementById("nomeUsuario");
-
-    if(nomeUsuario && usuario)
+    const usuarios = JSON.parse(localStorage.getItem("usuarios"));
+    const nome = usuarios.filter(u => u.usuario == usuario)[0].nome;
+    const elemento_nome_usuario = document.getElementById("nome-usuario");
+    elemento_nome_usuario.textContent = nome;
+    const lista_cartoes = document.getElementsByClassName("card");
+    lista_cartoes.forEach(function(cartao_atual, indice_cartao)
     {
-        nomeUsuario.textContent = usuario;
-    }
-
-    // PEGA OS CARDS
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach((card, index) =>
-    {
-        card.addEventListener('click', function()
+        cartao_atual.addEventListener("click", function ()
         {
-            if (index === 0)
+            if (indice_cartao === 0)
             {
                 location.assign('/graficos');
             }
-
-            else if (index === 1)
+            else if (indice_cartao === 1)
             {
                 location.assign('/indices');
             }
-
-            else if (index === 2)
+            else if (indice_cartao === 2)
             {
                 location.assign('/noticias');
             }
         });
-
-        card.style.cursor = 'pointer';
     });
-
-    // SALVA ÚLTIMA VISITA
-    const ultimaVisita = new Date().toLocaleString('pt-BR');
-
-    localStorage.setItem('ultima_visita', ultimaVisita);
 }
-
-// ESPERA O HTML CARREGAR
-document.addEventListener("DOMContentLoaded", iniciarHome);
+function iniciar_home()
+{
+    montar_cards();
+}
+check_logado();
+document.addEventListener("DOMContentLoaded", iniciar_home);

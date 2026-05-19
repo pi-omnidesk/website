@@ -1,15 +1,3 @@
 @import "/css/default.css";
 @import "/css/cores.css";
 @import "/css/classes.css";
-
-.footer{
-    display: flex;
-    justify-content: center;
-    justify-content: space-between;
-}
-
-.contato{
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: right;
-}
