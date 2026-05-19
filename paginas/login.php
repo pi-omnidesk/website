@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
 
-  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
     <div class="logo">
 
       <!-- SUA LOGO -->
-      <img src="./imagens/logo-claro.png" alt="Logo">
+      <img src="/imagens/logo-claro.png" alt="Logo">
 
     </div>
 
@@ -61,7 +61,7 @@
 
       <p>Não possui conta?</p>
 
-      <a href="cadastro.html" class="btn-cadastro">
+      <a href="/cadastro" class="btn-cadastro">
         Cadastre-se
       </a>
 
@@ -69,7 +69,7 @@
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./js/login.js"></script>
+  <script src="/js/login.js"></script>
 
 </body>
 </html>

@@ -27,17 +27,40 @@ require_once './rotas.php';
 
 if (in_array($pagina, $rotas_arquivos))
 {
-    include_once "./$pagina/$secoes[0]";
+    $arquivo = "./$pagina/$secoes[0]";
+
+    if (!is_file($arquivo))
+    {
+        include './sistema/404.php';
+        exit;
+    }
+
+    $extensao = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
+
+    if ($extensao == 'css')
+    {
+        header('content-type: text/css; charset=utf-8');
+    }
+    else if ($extensao == 'js')
+    {
+        header('content-type: application/javascript; charset=utf-8');
+    }
+    else if (in_array($extensao, ['png']))
+    {
+        header('content-type: ' . mime_content_type($arquivo));
+    }
+
+    include $arquivo;
     exit;
 }
-if (in_array($pagina, $paginas_disponiveis))
+else if (in_array($pagina, $paginas_disponiveis))
 {
-    include_once "./paginas/$pagina.php";
+    include "./paginas/$pagina.php";
     exit;
 }
 else
 {
-    include_once './sistema/404.php';
+    include './sistema/404.php';
     exit;
 }
 

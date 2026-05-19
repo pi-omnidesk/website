@@ -5,6 +5,6 @@
  * producao
  * testes
 */
-$ambiente = "desenvolvimento";
+$ambiente = 'desenvolvimento';
 
 ?>

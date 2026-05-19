@@ -10,16 +10,16 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
 
-        <link rel="stylesheet" href="./css/graficos.css"/>
+        <link rel="stylesheet" href="/css/graficos.css"/>
     </head>
     <body>
         <nav class="nav">
-            <img class="logo" src="./imagens/logomarca.png" alt="logo do omnidesk"/>
+            <img class="logo" src="/imagens/logomarca.png" alt="logo do omnidesk"/>
             <ul class="nav">
-                <li><a href="./home.html">HOME</a></li>
-                <li><a href="./noticias.html">NOTÍCIAS</a></li>
-                <li><a href="./indices.html">ÍNDICES</a></li>
-                <li><a href="./graficos.html">GRÁFICOS</a></li>
+                <li><a href="/home">HOME</a></li>
+                <li><a href="/noticias">NOTÍCIAS</a></li>
+                <li><a href="/indices">ÍNDICES</a></li>
+                <li><a href="/graficos">GRÁFICOS</a></li>
             </ul>
             <button class="sair" onclick="sair()">SAIR</button>
         </nav>
@@ -30,6 +30,6 @@
             <p>&copy; 2026 PI-OMNIDESK</p>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="./js/graficos.js"></script>
+        <script src="/js/graficos.js"></script>
     </body>
 </html>

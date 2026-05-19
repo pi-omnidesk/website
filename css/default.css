@@ -1,5 +1,5 @@
-@import "./montserrat-font.css";
-@import "./material-icons.css";
+@import "/css/montserrat-font.css";
+@import "/css/material-icons.css";
 *
 {
     margin: 0;

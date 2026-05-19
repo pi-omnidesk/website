@@ -44,7 +44,7 @@ function acao_login(event)
     var senha = event.target.elements.senha.value;
     if (login(usuario, senha))
     {
-        location.assign("./home.html");
+        location.assign("/home");
     }
 }
 
@@ -57,7 +57,7 @@ function acao_cadastro(event)
     var senha = event.target.elements.senha.value;
     if (cadastro(nome, email, usuario, senha))
     {
-        location.assign("./login.html");
+        location.assign("/login");
     }
 }
 
