@@ -34,25 +34,25 @@
         <ul class="nav">
 
             <li>
-                <a href="./home.html">
+                <a href="/home">
                     HOME
                 </a>
             </li>
 
             <li>
-                <a href="./noticias.html">
+                <a href="/noticias">
                     NOTÍCIAS
                 </a>
             </li>
 
             <li>
-                <a href="./indices.html">
+                <a href="/indices">
                     ÍNDICES
                 </a>
             </li>
 
             <li>
-                <a href="./graficos.html">
+                <a href="/graficos">
                     GRÁFICOS
                 </a>
             </li>
