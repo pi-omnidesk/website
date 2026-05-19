@@ -1,0 +1,4 @@
+rewriteengine on
+
+rewritecond %{REQUEST_URI} !^/roteador\.php$
+rewriterule ^.*$ roteador.php [l]
