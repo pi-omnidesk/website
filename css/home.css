@@ -1,3 +1,174 @@
 @import "/css/default.css";
 @import "/css/cores.css";
 @import "/css/classes.css";
+
+/* MAIN */
+
+main
+{
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+}
+
+/* BOAS VINDAS */
+
+.boas-vindas
+{
+    background-color: var(--cor-preto);
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    border-left: 8px solid var(--cor-amarelo);
+    margin-bottom: 1rem;
+
+    display: grid;
+    gap: 0.5rem;
+}
+
+#nomeUsuario
+{
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--cor-amarelo);
+}
+
+.boas-vindas h1
+{
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.boas-vindas p
+{
+    color: #cccccc;
+    font-size: 1rem;
+}
+
+#nomeUsuario
+{
+    color: var(--cor-amarelo);
+}
+
+/* APRESENTAÇÃO */
+
+section#apresentacao
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* CARD */
+
+.card
+{
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--cor-amarelo);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+
+    display: grid;
+    gap: 1rem;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    transition: 0.3s;
+}
+
+.card:hover
+{
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* CABEÇALHO CARD */
+
+.card-header
+{
+    display: grid;
+    gap: 0.5rem;
+}
+
+.card-header h3
+{
+    color: var(--cor-preto);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* CONTEÚDO CARD */
+
+.card-content
+{
+    color: var(--cor-texto);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* STATS */
+
+.card-stats
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat
+{
+    background-color: var(--cor-amarelo);
+
+    padding: 1rem;
+
+    border-radius: 0.5rem;
+
+    text-align: center;
+}
+
+.value
+{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cor-preto);
+}
+
+.contato{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: right;
+}
+
+.label
+{
+    font-size: 0.85rem;
+    color: var(--cor-preto);
+    font-weight: 500;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 768px)
+{
+    main
+    {
+        padding: 1rem;
+    }
+
+    .boas-vindas h1
+    {
+        font-size: 1.5rem;
+    }
+
+    section#apresentacao
+    {
+        grid-template-columns: 1fr;
+    }
+}

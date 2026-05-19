@@ -1,3 +1,108 @@
 @import "/css/default.css";
 @import "/css/cores.css";
 @import "/css/classes.css";
+
+main
+{
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+}
+
+.contato{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: right;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+section#apresentacao
+{
+    display: grid;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    
+    & .noticia-container
+    {
+        background-color: var(--cor-fundo);
+        border-left: 5px solid var(--cor-amarelo);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        display: grid;
+        gap: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        
+        &:hover
+        {
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        & .noticia-data
+        {
+            font-size: 0.85rem;
+            color: var(--cor-amarelo);
+            font-weight: 600;
+        }
+        
+        & .noticia-titulo
+        {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--cor-preto);
+        }
+        
+        & .noticia-descricao
+        {
+            font-size: 1rem;
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+        
+        & .noticia-rodape
+        {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+            
+            & .noticia-categoria
+            {
+                background-color: var(--cor-amarelo);
+                color: var(--cor-preto);
+                padding: 0.3rem 0.8rem;
+                border-radius: 1rem;
+                font-size: 0.75rem;
+                font-weight: 600;
+            }
+            
+            & .noticia-leia-mais
+            {
+                background-color: var(--cor-amarelo);
+                color: var(--cor-preto);
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                font-weight: 600;
+                transition: background-color 0.3s ease;
+                
+                &:hover
+                {
+                    background-color: #daa500;
+                }
+            }
+        }
+    }
+}

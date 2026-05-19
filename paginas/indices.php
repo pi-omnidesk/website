@@ -262,9 +262,20 @@
                 </tbody>
                 </table>
         </main>
+        
         <footer class="footer">
-            <p>&copy; 2026 PI-OMNIDESK</p>
-        </footer>
+
+        <P class="contato">
+            CONTATO : (11) 99999-9999
+        </P>
+        <p>&copy; 2026 PI-OMNIDESK - TODOS OS DIREITOS RESERVADOS</p>
+        <p class="redes">
+            REDES SOCIAIS : @OmniDesk
+        </p>
+
+
+    </footer>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
         <script src="/js/indices.js"></script>
     </body>
