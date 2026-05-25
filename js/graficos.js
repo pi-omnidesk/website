@@ -1,6 +1,6 @@
 function check_logado()
 {
-    if (localStorage.getItem("usuario_logado") == null)
+    if (localStorage.getItem("usuario_logado") === null)
     {
         location.assign("/login");
     }
@@ -16,27 +16,7 @@ function sair()
 
 function iniciar_graficos()
 {
-    const tickers_json = localStorage.getItem("tickers_seguindo");
-
-    let tickers_seguindo = [];
-
-    if (tickers_json)
-    {
-        try
-        {
-            tickers_seguindo = JSON.parse(tickers_json);
-        }
-        catch (erro)
-        {
-            console.warn("Erro ao carregar tickers:", erro);
-
-            tickers_seguindo = [];
-        }
-    }
-
-    const rotulo_titulo = tickers_seguindo.length > 0
-        ? `Portfólio Personalizado (${tickers_seguindo.length} tickers)`
-        : "Portfólio Padrão";
+    const rotulo_titulo = "Portfólio Padrão";
 
     // GRÁFICO DE EVOLUÇÃO
     const contexto_evolucao = document.getElementById("graficoEvolucao").getContext("2d");
@@ -47,7 +27,7 @@ function iniciar_graficos()
             labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio"],
             datasets: [{
                 label: rotulo_titulo,
-                data: tickers_seguindo.length > 0 ? [18, 22, 16, 20, 28] : [12, 19, 8, 5, 22],
+                data: [12, 19, 8, 5, 22],
                 borderColor: "#fec901",
                 backgroundColor: "rgba(254, 201, 1, 0.1)",
                 borderWidth: 3,
@@ -77,13 +57,9 @@ function iniciar_graficos()
     // GRÁFICO DE PIZZA
     const contexto_pizza = document.getElementById("graficoPizza").getContext("2d");
 
-    const categorias_pizza = tickers_seguindo.length > 0
-        ? tickers_seguindo.slice(0, 4).map(function(ticker) { return ticker; })
-        : ["Categoria A", "Categoria B", "Categoria C", "Categoria D"];
+    const categorias_pizza = ["Categoria A", "Categoria B", "Categoria C", "Categoria D"];
 
-    const dados_pizza = tickers_seguindo.length > 0
-        ? [22, 18, 25, 20].slice(0, categorias_pizza.length)
-        : [30, 25, 20, 25];
+    const dados_pizza = [30, 25, 20, 25];
 
     new Chart(contexto_pizza, {
         type: "doughnut",
@@ -116,7 +92,7 @@ function iniciar_graficos()
             labels: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
             datasets: [{
                 label: "Desempenho (%)",
-                data: tickers_seguindo.length > 0 ? [88, 94, 82, 96, 91, 79, 85] : [85, 92, 78, 95, 88, 76, 82],
+                data: [85, 92, 78, 95, 88, 76, 82],
                 backgroundColor: "#fec901",
                 borderColor: "#1a1a1a",
                 borderWidth: 1
@@ -152,14 +128,14 @@ function iniciar_graficos()
             datasets: [
                 {
                     label: "2026",
-                    data: tickers_seguindo.length > 0 ? [70, 78, 75, 77, 80] : [65, 73, 70, 72, 75],
+                    data: [65, 73, 70, 72, 75],
                     borderColor: "#fec901",
                     backgroundColor: "rgba(254, 201, 1, 0.2)",
                     borderWidth: 2
                 },
                 {
                     label: "2025",
-                    data: tickers_seguindo.length > 0 ? [58, 64, 67, 72, 75] : [52, 58, 60, 65, 70],
+                    data: [52, 58, 60, 65, 70],
                     borderColor: "#1a1a1a",
                     backgroundColor: "rgba(26, 26, 26, 0.1)",
                     borderWidth: 2

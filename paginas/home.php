@@ -18,8 +18,6 @@
                 <li><a href="/noticias">NOTÍCIAS</a></li>
                 <li><a href="/indices">ÍNDICES</a></li>
                 <li><a href="/graficos">GRÁFICOS</a></li>
-                <li><a href="/calculadora">CALCULADORA</a></li>
-                <li><a href="/personalizacao">PERSONALIZAÇÃO</a></li>
             </ul>
             <button class="sair" onclick="sair()">SAIR</button>
         </nav>
@@ -71,8 +69,6 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
             </section>
         </main>
         <footer class="footer">

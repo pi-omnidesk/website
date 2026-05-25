@@ -1,6 +1,6 @@
 function check_logado()
 {
-    if (localStorage.getItem("usuario_logado") == null)
+    if (localStorage.getItem("usuario_logado") === null)
     {
         location.assign("/login");
     }
@@ -213,13 +213,6 @@ function renderizar_lista_noticias(noticias_filtradas)
 {
     const lista_noticias = document.getElementById("listaNoticias");
 
-    if (noticias_filtradas.length === 0)
-    {
-        lista_noticias.innerHTML = "<div class=\"noticia-vazia\"><p>Nenhum ticker selecionado. <a href=\"./personalizacao.html\">Clique aqui para escolher</a></p></div>";
-
-        return;
-    }
-
     const mapa_indices = {};
 
     noticias_mercado.forEach(function(noticia, indice)
@@ -248,7 +241,7 @@ function renderizar_lista_noticias(noticias_filtradas)
     {
         const item_selecionado = evento.target.closest(".noticia-item");
 
-        if (item_selecionado == null)
+        if (item_selecionado === null)
         {
             return;
         }
@@ -377,7 +370,7 @@ async function selecionar_noticia(indice_noticia)
 {
     const noticia_selecionada = noticias_mercado[indice_noticia];
 
-    if (noticia_selecionada == null)
+    if (noticia_selecionada === null)
     {
         return;
     }
@@ -403,30 +396,7 @@ async function selecionar_noticia(indice_noticia)
 
 function iniciar_noticias()
 {
-    const tickers_json = localStorage.getItem("tickers_seguindo");
-
-    let tickers_seguindo = [];
-
-    if (tickers_json)
-    {
-        try
-        {
-            tickers_seguindo = JSON.parse(tickers_json);
-        }
-        catch (erro)
-        {
-            console.warn("Erro ao carregar tickers:", erro);
-
-            tickers_seguindo = [];
-        }
-    }
-
-    const noticias_filtradas = tickers_seguindo.length > 0
-        ? noticias_mercado.filter(function(noticia)
-        {
-            return tickers_seguindo.includes(noticia.ticker);
-        })
-        : [];
+    const noticias_filtradas = noticias_mercado;
 
     renderizar_lista_noticias(noticias_filtradas);
 

@@ -6,26 +6,29 @@
     cursor: default;
     user-select: none;
     font-size: 1rem;
-    line-height: 1;
+    line-height: 1.4;
     font-family: "Montserrat";
 }
-html,body
+html,
+body
 {
-    height: 100vh;
+    min-height: 100vh;
 }
 body
 {
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
-.contato{
+.contato
+{
     display: grid;
     grid-auto-flow: column;
-    justify-content: right;
+    justify-content: end;
 }
-
-.footer{
+.footer
+{
     display: flex;
-    justify-content: center;
     justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
 }

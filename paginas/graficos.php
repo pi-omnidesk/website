@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
 
-        <link rel="stylesheet" href="./css/graficos.css"/>
+        <link rel="stylesheet" href="/css/graficos.css"/>
     </head>
     <body>
         <nav class="nav">
@@ -46,19 +46,11 @@
                 </div>
             </section>
         </main>
-        
-         <footer class="footer">
-
-        <P class="contato">
-            CONTATO : (11) 99999-9999
-        </P>
-        <p>&copy; 2026 PI-OMNIDESK - TODOS OS DIREITOS RESERVADOS</p>
-        <p class="redes">
-            REDES SOCIAIS : @OmniDesk
-        </p>
-
-
-    </footer>
+        <footer class="footer">
+            <p class="contato">CONTATO : (11) 99999-9999</p>
+            <p>&copy; 2026 PI-OMNIDESK - TODOS OS DIREITOS RESERVADOS</p>
+            <p class="redes">REDES SOCIAIS : @OmniDesk</p>
+        </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
