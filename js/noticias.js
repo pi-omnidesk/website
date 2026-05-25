@@ -185,7 +185,6 @@ const noticias_mercado = [
     }
 ];
 
-const cache_fontes = new Map();
 let indice_noticia_selecionada = -1;
 
 function formatar_fonte(data_iso)
@@ -258,35 +257,18 @@ function renderizar_placeholder(mensagem)
         <div class="noticia-placeholder">
             <span class="noticias-eyebrow">Painel de leitura</span>
             <h2>${mensagem}</h2>
-            <p>Coluna da direita fica vazia até seleção. Depois abre artigo completo, contexto da empresa e fontes recentes coletadas via API pública.</p>
+            <p>Coluna da direita abre o artigo completo da base interna assim que a notícia é selecionada.</p>
         </div>
     `;
 }
 
-function renderizar_painel(noticia, fontes_externas)
+function renderizar_painel(noticia)
 {
     const painel_noticia = document.getElementById("painel-noticia");
     const paragrafos_artigo = noticia.artigo.map(function(trecho_atual)
     {
         return `<p>${trecho_atual}</p>`;
     }).join("");
-
-    const fontes_html = fontes_externas.length > 0
-        ? fontes_externas.map(function(fonte_atual)
-        {
-            return `
-            <a class="painel-fonte" href="${fonte_atual.url}" target="_blank" rel="noreferrer">
-                <strong>${fonte_atual.title}</strong>
-                <span>${fonte_atual.domain} · ${formatar_fonte(fonte_atual.seendate)}</span>
-            </a>
-        `;
-        }).join("")
-        : `
-            <div class="painel-fonte">
-                <strong>Sem retorno da API no momento</strong>
-                <span>Ficou só artigo interno. Tenta mais tarde ou abre outra empresa.</span>
-            </div>
-        `;
 
     painel_noticia.innerHTML = `
         <section class="painel-artigo">
@@ -302,71 +284,19 @@ function renderizar_painel(noticia, fontes_externas)
                 ${paragrafos_artigo}
             </div>
             <div class="painel-fonte-box">
-                <strong>Fontes recentes via API pública</strong>
+                <strong>Conteúdo local</strong>
                 <div class="painel-fonte-lista">
-                    ${fontes_html}
+                    <div class="painel-fonte">
+                        <strong>Busca online desativada</strong>
+                        <span>O painel usa somente a base interna de notícias do projeto.</span>
+                    </div>
                 </div>
             </div>
         </section>
     `;
 }
 
-async function buscar_fontes_relacionadas(noticia)
-{
-    const consulta = encodeURIComponent(noticia.consulta);
-    const endereco_api = `https://api.gdeltproject.org/api/v2/doc/doc?query=${consulta}&mode=ArtList&format=json&sort=datedesc&maxrecords=5`;
-
-    if (cache_fontes.has(noticia.ticker))
-    {
-        return cache_fontes.get(noticia.ticker);
-    }
-
-    try
-    {
-        const resposta_api = await fetch(endereco_api);
-
-        if (!resposta_api.ok)
-        {
-            throw new Error(`Resposta API inválida: ${resposta_api.status}`);
-        }
-
-        const content_type = resposta_api.headers.get("content-type") || "";
-
-        if (!content_type.includes("application/json"))
-        {
-            throw new Error("Resposta API não retornou JSON");
-        }
-
-        const dados_api = await resposta_api.json();
-        const fontes_encontradas = Array.isArray(dados_api.articles)
-            ? dados_api.articles.slice(0, 5).map(function(artigo_atual)
-            {
-                return {
-                    title: artigo_atual.title || noticia.titulo,
-                    url: artigo_atual.url || "#",
-                    domain: artigo_atual.domain || "Fonte externa",
-                    seendate: artigo_atual.seendate || artigo_atual.datetime || ""
-                };
-            }).filter(function(fonte_atual)
-            {
-                return fonte_atual.url !== "#";
-            })
-            : [];
-
-        cache_fontes.set(noticia.ticker, fontes_encontradas);
-
-        return fontes_encontradas;
-    }
-    catch (erro)
-    {
-        console.warn("Falha ao buscar fontes externas:", erro);
-        cache_fontes.set(noticia.ticker, []);
-
-        return [];
-    }
-}
-
-async function selecionar_noticia(indice_noticia)
+function selecionar_noticia(indice_noticia)
 {
     const noticia_selecionada = noticias_mercado[indice_noticia];
 
@@ -384,14 +314,12 @@ async function selecionar_noticia(indice_noticia)
 
     renderizar_placeholder(`Carregando ${noticia_selecionada.empresa}...`);
 
-    const fontes_externas = await buscar_fontes_relacionadas(noticia_selecionada);
-
     if (indice_noticia_selecionada !== indice_noticia)
     {
         return;
     }
 
-    renderizar_painel(noticia_selecionada, fontes_externas);
+    renderizar_painel(noticia_selecionada);
 }
 
 function iniciar_noticias()
@@ -399,6 +327,12 @@ function iniciar_noticias()
     const noticias_filtradas = noticias_mercado;
 
     renderizar_lista_noticias(noticias_filtradas);
+
+    if (noticias_filtradas.length > 0)
+    {
+        selecionar_noticia(0);
+        return;
+    }
 
     renderizar_placeholder("Selecione uma notícia");
 }

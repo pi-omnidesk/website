@@ -1,4 +1,8 @@
 <main>
+    <div class="filtro-graficos">
+        <label for="seletor-ticker-graficos">Ticker dos gráficos</label>
+        <select id="seletor-ticker-graficos"></select>
+    </div>
     <section id="apresentacao">
         <div class="grafico-container">
             <div class="grafico-titulo">Evolução Mensal</div>

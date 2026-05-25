@@ -7,6 +7,46 @@
 body
 {
     width: 100%;
+
+#area-aviso
+{
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.aviso-flutuante
+{
+    min-width: 220px;
+    padding: 0.8rem 1rem;
+    border-radius: 0.75rem;
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.aviso-flutuante.visivel
+{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aviso-flutuante.sucesso
+{
+    background: #22c55e;
+}
+
+.aviso-flutuante.erro
+{
+    background: #ef4444;
+}
     height: 100vh;
     background: #1f1f1f;
     display: flex;

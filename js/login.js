@@ -1,3 +1,36 @@
+function mostrar_aviso(mensagem, tipo)
+{
+    var area_aviso = document.getElementById("area-aviso");
+
+    if (!area_aviso)
+    {
+        area_aviso = document.createElement("div");
+        area_aviso.id = "area-aviso";
+        document.body.appendChild(area_aviso);
+    }
+
+    var aviso = document.createElement("div");
+    aviso.className = "aviso-flutuante " + tipo;
+    aviso.textContent = mensagem;
+
+    area_aviso.appendChild(aviso);
+
+    window.setTimeout(function()
+    {
+        aviso.classList.add("visivel");
+    }, 10);
+
+    window.setTimeout(function()
+    {
+        aviso.classList.remove("visivel");
+
+        window.setTimeout(function()
+        {
+            aviso.remove();
+        }, 200);
+    }, 1600);
+}
+
 function login(usuario, senha)
 {
     var usuarios = sincronizar_usuarios();
@@ -15,12 +48,12 @@ function login(usuario, senha)
             "usuario_logado",
             usuario_encontrado.usuario
         );
-        alert("entrou na conta com sucesso");
+        mostrar_aviso("Login realizado com sucesso", "sucesso");
         return true;
     }
     else
     {
-        alert("usuário ou senha inválidos");
+        mostrar_aviso("Usuário ou senha inválidos", "erro");
         return false;
     }
 }
@@ -35,7 +68,7 @@ function cadastro(nome, email, usuario, senha)
         }
     ).length)
     {
-        alert("usuário já existe");
+        mostrar_aviso("Usuário já existe", "erro");
         return false;
     }
     else
@@ -47,7 +80,7 @@ function cadastro(nome, email, usuario, senha)
             senha
         });
         sincronizar_usuarios(usuarios);
-        alert("conta criada com sucesso");
+        mostrar_aviso("Conta criada com sucesso", "sucesso");
         return true;
     }
 }
@@ -68,7 +101,10 @@ function acao_login(event)
     var senha = event.target.elements.senha.value;
     if (login(usuario, senha))
     {
-        location.assign("/home");
+        window.setTimeout(function()
+        {
+            location.assign("/home");
+        }, 700);
     }
 }
 function acao_cadastro(event)
@@ -80,7 +116,10 @@ function acao_cadastro(event)
     var senha = event.target.elements.senha.value;
     if (cadastro(nome, email, usuario, senha))
     {
-        location.assign("/login");
+        window.setTimeout(function()
+        {
+            location.assign("/login");
+        }, 700);
     }
 }
 function sincronizar_usuarios(usuarios)
