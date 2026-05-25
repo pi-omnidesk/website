@@ -18,18 +18,13 @@ else
     $pagina = $segmentos[0];
 }
 $secoes = array_slice($segmentos, 1);
-require_once './rotas.php';
+require_once __DIR__ . '/rotas.php';
 if (in_array($pagina, $rotas_arquivos))
 {
-    if (empty($secoes) || $secoes[0] === '')
-    {
-        include './sistema/404.php';
-        exit;
-    }
-    $arquivo = "./$pagina/{$secoes[0]}";
+    $arquivo = __DIR__ . "/$pagina/{$secoes[0]}";
     if (!is_file($arquivo))
     {
-        include './sistema/404.php';
+        include __DIR__ . '/sistema/404.php';
         exit;
     }
     $extensao = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
@@ -50,12 +45,12 @@ if (in_array($pagina, $rotas_arquivos))
 }
 else if (in_array($pagina, $paginas_disponiveis))
 {
-    include "./paginas/$pagina.php";
+    include __DIR__ . '/includes/wrapper.php';
     exit;
 }
 else
 {
-    include './sistema/404.php';
+    include __DIR__ . '/sistema/404.php';
     exit;
 }
 ?>

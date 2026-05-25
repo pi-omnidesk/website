@@ -211,7 +211,7 @@ function formatar_fonte(data_iso)
 
 function renderizar_lista_noticias(noticias_filtradas)
 {
-    const lista_noticias = document.getElementById("listaNoticias");
+    const lista_noticias = document.getElementById("lista-noticias");
 
     const mapa_indices = {};
 
@@ -252,7 +252,7 @@ function renderizar_lista_noticias(noticias_filtradas)
 
 function renderizar_placeholder(mensagem)
 {
-    const painel_noticia = document.getElementById("painelNoticia");
+    const painel_noticia = document.getElementById("painel-noticia");
 
     painel_noticia.innerHTML = `
         <div class="noticia-placeholder">
@@ -265,7 +265,7 @@ function renderizar_placeholder(mensagem)
 
 function renderizar_painel(noticia, fontes_externas)
 {
-    const painel_noticia = document.getElementById("painelNoticia");
+    const painel_noticia = document.getElementById("painel-noticia");
     const paragrafos_artigo = noticia.artigo.map(function(trecho_atual)
     {
         return `<p>${trecho_atual}</p>`;
