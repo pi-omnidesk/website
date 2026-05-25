@@ -5,11 +5,11 @@
     <form id="formulario-login">
         <div class="grupo-entrada">
             <label>Usuário:</label>
-            <input type="text" name="usuario" placeholder="digite seu usuário" required/>
+            <input type="text" name="usuario" placeholder="Digite seu usuário" required/>
         </div>
         <div class="grupo-entrada">
             <label>Senha:</label>
-            <input type="password" name="senha" placeholder="digite sua senha" required/>
+            <input type="password" name="senha" placeholder="Digite sua senha" required/>
         </div>
         <button type="submit" class="botao-login">➜</button>
     </form>
