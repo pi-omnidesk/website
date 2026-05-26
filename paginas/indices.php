@@ -235,5 +235,5 @@
                 <td>R$ 18,40</td>
             </tr>
         </tbody>
-        </table>
+    </table>
 </main>

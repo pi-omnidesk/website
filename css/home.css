@@ -1,9 +1,6 @@
 @import "/css/default.css";
 @import "/css/cores.css";
 @import "/css/classes.css";
-
-/* MAIN */
-
 main
 {
     display: grid;

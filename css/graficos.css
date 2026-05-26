@@ -1,14 +1,12 @@
 @import "/css/default.css";
 @import "/css/cores.css";
 @import "/css/classes.css";
-
 main
 {
     padding: 2rem;
     display: grid;
     gap: 2rem;
 }
-
 .filtro-graficos
 {
     display: flex;
@@ -20,13 +18,11 @@ main
     border: 2px solid var(--cor-amarelo);
     border-radius: 1rem;
 }
-
 .filtro-graficos label
 {
     font-weight: 700;
     color: var(--cor-preto);
 }
-
 .filtro-graficos select
 {
     min-width: 220px;
@@ -37,13 +33,11 @@ main
     color: var(--cor-preto);
     font: inherit;
 }
-
 section#apresentacao
 {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 2rem;
-    
     & .grafico-container
     {
         background-color: var(--cor-fundo);
@@ -53,7 +47,6 @@ section#apresentacao
         display: grid;
         gap: 1rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        
         & .grafico-titulo
         {
             font-size: 1.3rem;
@@ -62,7 +55,6 @@ section#apresentacao
             border-bottom: 2px solid var(--cor-amarelo);
             padding-bottom: 1rem;
         }
-        
         & canvas
         {
             max-width: 100%;
@@ -70,7 +62,6 @@ section#apresentacao
         }
     }
 }
-
 @media (max-width: 1200px)
 {
     section#apresentacao
@@ -78,7 +69,6 @@ section#apresentacao
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
-
 @media (max-width: 768px)
 {
     section#apresentacao
