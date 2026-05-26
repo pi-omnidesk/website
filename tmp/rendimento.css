@@ -1,7 +1,6 @@
 @import "./default.css";
 @import "./cores.css";
 @import "./classes.css";
-
 .rendimento-layout
 {
     display: grid;
@@ -9,7 +8,6 @@
     justify-content: center;
     padding: 2rem 1.5rem;
 }
-
 .rendimento-container
 {
     max-width: 700px;
@@ -17,7 +15,6 @@
     display: grid;
     gap: 2rem;
 }
-
 .header-secao
 {
     display: grid;
@@ -39,7 +36,6 @@
         margin: 0;
     }
 }
-
 .formulario-rendimento
 {
     display: grid;
@@ -49,7 +45,6 @@
     border: 2px solid rgba(254, 201, 1, 0.3);
     border-radius: 1.5rem;
 }
-
 .grupo-formulario
 {
     display: grid;
@@ -80,7 +75,6 @@
         }
     }
 }
-
 .btn-calcular
 {
     padding: 0.85rem 1.5rem;
@@ -103,7 +97,6 @@
         transform: translateY(0);
     }
 }
-
 .container-resultados
 {
     display: grid;
@@ -114,7 +107,6 @@
     border-radius: 1.5rem;
     animation: slideDown 0.3s ease;
 }
-
 @keyframes slideDown
 {
     from
@@ -128,7 +120,6 @@
         transform: translateY(0);
     }
 }
-
 .resultado-header
 {
     & h2
@@ -139,14 +130,12 @@
         margin: 0;
     }
 }
-
 .resultado-grid
 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
 }
-
 .resultado-card
 {
     display: grid;
@@ -169,7 +158,6 @@
         color: var(--cor-preto);
     }
 }
-
 .resultado-retorno
 {
     display: grid;
@@ -179,7 +167,6 @@
     border-radius: 1rem;
     border-left: 4px solid var(--cor-amarelo);
 }
-
 .retorno-item
 {
     display: grid;
@@ -205,7 +192,6 @@
         color: var(--cor-amarelo);
     }
 }
-
 .aviso-simulacao
 {
     padding: 1rem;
@@ -215,7 +201,6 @@
     color: rgba(26, 26, 26, 0.8);
     font-size: 0.9rem;
 }
-
 @media (max-width: 768px)
 {
     .rendimento-layout
