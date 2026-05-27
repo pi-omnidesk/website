@@ -9,5 +9,5 @@
         <li><a href="/indices"><span class="material-symbols-rounded" aria-hidden="true">monitoring</span>ÍNDICES</a></li>
         <li><a href="/graficos"><span class="material-symbols-rounded" aria-hidden="true">bar_chart</span>GRÁFICOS</a></li>
     </ul>
-    <button class="sair" onclick="sair()"><span class="material-symbols-rounded" aria-hidden="true">logout</span>SAIR</button>
+    <button class="sair" type="button" id="deslogar"><span class="material-symbols-rounded" aria-hidden="true">logout</span>SAIR</button>
 </nav>

@@ -22,6 +22,6 @@
             }
             include __DIR__ . '/links-js.php';
         ?>
-        <script src="/js/<?php echo $pagina; ?>.js"></script>
+        <script src="/js/<?php echo $pagina; ?>.js" type="module"></script>
     </body>
 </html>

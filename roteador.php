@@ -36,7 +36,7 @@ if (in_array($pagina, $rotas_arquivos))
     {
         header('content-type: application/javascript; charset=utf-8');
     }
-    else if (in_array($extensao, ['png']))
+    else if (in_array($extensao, ['png', 'jpg', 'jpeg', 'gif', 'svg']))
     {
         header('content-type: ' . mime_content_type($arquivo));
     }

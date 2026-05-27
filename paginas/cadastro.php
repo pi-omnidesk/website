@@ -19,12 +19,15 @@
             <label>Senha:</label>
             <input type="password" name="senha" placeholder="Crie uma senha" required/>
         </div>
-        <button type="submit" class="botao-login">➜</button>
+        <button type="submit" class="botao-login" aria-label="cadastrar">
+            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+        </button>
     </form>
     <div class="area-cadastro">
         <p>Já possui conta?</p>
-        <a href="/login" class="botao-cadastro">Fazer login</a>
+        <a href="/login" class="botao-cadastro">
+            <span class="material-symbols-rounded" aria-hidden="true">login</span>
+            <span>Fazer login</span>
+        </a>
     </div>
 </div>
-<link rel="stylesheet" href="/css/login.css"/>
-<script src="/js/login.js"></script>

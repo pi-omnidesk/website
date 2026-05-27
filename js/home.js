@@ -1,15 +1,4 @@
-function check_logado()
-{
-    if (localStorage.getItem("usuario_logado") === null)
-    {
-        location.assign("/login");
-    }
-}
-function sair()
-{
-    localStorage.removeItem("usuario_logado");
-    location.assign("/login");
-}
+import {inicializar_usuario, sair} from "./funcoes-usuario.js";
 function montar_cards()
 {
     const usuario = localStorage.getItem("usuario_logado");
@@ -58,5 +47,5 @@ function iniciar_home()
 {
     montar_cards();
 }
-check_logado();
+inicializar_usuario();
 document.addEventListener("DOMContentLoaded", iniciar_home);

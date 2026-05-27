@@ -1,19 +1,4 @@
-function check_logado()
-{
-    if (localStorage.getItem("usuario_logado") === null)
-    {
-        location.assign("/login");
-    }
-}
-
-check_logado();
-
-function sair()
-{
-    localStorage.removeItem("usuario_logado");
-    location.assign("/login");
-}
-
+import {inicializar_usuario} from "./funcoes-usuario.js";
 const tickers_dados = [
     { ticker: "PETR4", preco_atual: 28.50, volatilidade: 1.2 },
     { ticker: "VALE3", preco_atual: 65.30, volatilidade: 1.0 },
@@ -28,15 +13,12 @@ const tickers_dados = [
     { ticker: "BBAS3", preco_atual: 33.40, volatilidade: 0.9 },
     { ticker: "SUZB3", preco_atual: 38.75, volatilidade: 1.1 }
 ];
-
 let graficos_ativos = [];
-
 function obter_tickers_disponiveis()
 {
     try
     {
         const tickers_salvos = JSON.parse(localStorage.getItem("tickers_seguindo")) || [];
-
         if (Array.isArray(tickers_salvos) && tickers_salvos.length > 0)
         {
             return tickers_dados.filter(function(item)
@@ -49,30 +31,25 @@ function obter_tickers_disponiveis()
     {
         console.warn("Erro ao carregar tickers salvos:", erro);
     }
-
     return tickers_dados;
 }
-
 function gerar_dados_ticker(ticker)
 {
     const dados_ticker = tickers_dados.find(function(item)
     {
         return item.ticker === ticker;
     }) || tickers_dados[0];
-
     const base = dados_ticker.preco_atual;
     const volatilidade = dados_ticker.volatilidade;
     const seed = ticker.split("").reduce(function(soma, caractere)
     {
         return soma + caractere.charCodeAt(0);
     }, 0);
-
     return {
         dados_ticker: dados_ticker,
         evolucao: [0, 1, 2, 3, 4].map(function(indice)
         {
             const variacao = ((seed + indice * 17) % 9) - 4;
-
             return Number((base + variacao * volatilidade * 0.9 + indice * volatilidade * 0.4).toFixed(2));
         }),
         pizza: [
@@ -99,26 +76,20 @@ function gerar_dados_ticker(ticker)
         ]
     };
 }
-
 function destruir_graficos()
 {
     graficos_ativos.forEach(function(grafico_atual)
     {
         grafico_atual.destroy();
     });
-
     graficos_ativos = [];
 }
-
 function renderizar_graficos(ticker)
 {
     destruir_graficos();
-
     const serie = gerar_dados_ticker(ticker);
     const rotulo_titulo = ticker + " · Portfólio Padrão";
-
     const contexto_evolucao = document.getElementById("graficoEvolucao").getContext("2d");
-
     graficos_ativos.push(new Chart(contexto_evolucao, {
         type: "line",
         data: {
@@ -151,9 +122,7 @@ function renderizar_graficos(ticker)
             }
         }
     }));
-
     const contexto_pizza = document.getElementById("graficoPizza").getContext("2d");
-
     graficos_ativos.push(new Chart(contexto_pizza, {
         type: "doughnut",
         data: {
@@ -176,9 +145,7 @@ function renderizar_graficos(ticker)
             }
         }
     }));
-
     const contexto_desempenho = document.getElementById("graficoDesempenho").getContext("2d");
-
     graficos_ativos.push(new Chart(contexto_desempenho, {
         type: "bar",
         data: {
@@ -210,9 +177,7 @@ function renderizar_graficos(ticker)
             }
         }
     }));
-
     const contexto_comparativo = document.getElementById("graficoComparativo").getContext("2d");
-
     graficos_ativos.push(new Chart(contexto_comparativo, {
         type: "radar",
         data: {
@@ -250,33 +215,25 @@ function renderizar_graficos(ticker)
         }
     }));
 }
-
 function iniciar_graficos()
 {
     const seletor_tickers = document.getElementById("seletor-ticker-graficos");
     const tickers_disponiveis = obter_tickers_disponiveis();
-
     seletor_tickers.innerHTML = "";
-
     tickers_disponiveis.forEach(function(item)
     {
         const opcao = document.createElement("option");
-
         opcao.value = item.ticker;
         opcao.textContent = item.ticker + " - R$ " + item.preco_atual.toFixed(2).replace(".", ",");
-
         seletor_tickers.appendChild(opcao);
     });
-
     const ticker_inicial = tickers_disponiveis.length > 0 ? tickers_disponiveis[0].ticker : tickers_dados[0].ticker;
-
     seletor_tickers.value = ticker_inicial;
     renderizar_graficos(ticker_inicial);
-
     seletor_tickers.addEventListener("change", function(evento)
     {
         renderizar_graficos(evento.target.value);
     });
 }
-
+inicializar_usuario();
 document.addEventListener("DOMContentLoaded", iniciar_graficos);

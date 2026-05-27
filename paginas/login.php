@@ -11,10 +11,15 @@
             <label>Senha:</label>
             <input type="password" name="senha" placeholder="Digite sua senha" required/>
         </div>
-        <button type="submit" class="botao-login">➜</button>
+        <button type="submit" class="botao-login" aria-label="entrar">
+            <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+        </button>
     </form>
     <div class="area-cadastro">
         <p>Não possui conta?</p>
-        <a href="/cadastro" class="botao-cadastro">Cadastre-se</a>
+        <a href="/cadastro" class="botao-cadastro">
+            <span class="material-symbols-rounded" aria-hidden="true">person_add</span>
+            <span>Cadastre-se</span>
+        </a>
     </div>
 </div>
